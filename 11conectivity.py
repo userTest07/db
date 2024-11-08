@@ -1,37 +1,17 @@
-11.Connectivity
-
-
- Create
-Code:
-
 import pymongo
-if __name__ == "__main__":
- print("Welcome to pyMongo")
- client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
- print(client)
- db = client['Onkar']
- collection = db['Student']
- dictionary = {'Roll_no':1,'Name':'Aditya', 'Address':'Pune'}
- collection.insert_one(dictionary)
 
- Show Databases
-Code:
-import pymongo
-if __name__ == "__main__":
+client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
+
+def show_db():
  print("Welcome to pyMongo")
- client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
  print(client)
  alldbs = client.list_database_names()
  print(alldbs)
  col = client['Onkar']
  print(col.list_collection_names())
 
- Insert
-Code:
-import pymongo
-if __name__ == "__main__":
+def insert():
  print("Welcome to pyMongo")
- client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
  print(client)
  db = client['Onkar']
  collection = db['Student']
@@ -41,12 +21,8 @@ if __name__ == "__main__":
 'Address':'Siddhatek'},{'roll_no':54, 'Name':'Onkar', 'Address':'Akluj'}]
  collection.insert_many(allthese)
 
- Read
-Code:
-import pymongo
-if __name__ == "__main__":
+def find():
  print("Welcome to pyMongo")
- client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
  print(client)
  db = client['Onkar']
  collection = db['Student']
@@ -54,14 +30,10 @@ if __name__ == "__main__":
  print(one)
  alldocs = collection.find()
  for item in alldocs:
- print(item)
+     print(item)
 
- Update
-Code:
-import pymongo
-if __name__ == "__main__":
+def update():
  print("Welcome to pyMongo")
- client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
  print(client)
  db = client['Onkar']
  collection = db['Student']
@@ -72,12 +44,8 @@ if __name__ == "__main__":
  setfield = {'$set':{'Address':'Sadashivnagar'}}
  collection.update_many(refield, setfield)
 
- Delete
-Code:
-import pymongo
-if __name__ == "__main__":
+def delete():
  print("Welcome to pyMongo")
- client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
  print(client)
  db = client['Onkar']
  collection = db['Student']
@@ -85,3 +53,16 @@ if __name__ == "__main__":
  collection.delete_one(rec)
  rec2 = {'Name':'Onkar'}
  collection.delete_many(rec2)
+
+if __name__ == "__main__":
+ print("Welcome to pyMongo")
+ print(client)
+ db = client['Onkar']
+ collection = db['Student']
+ dictionary = {'Roll_no':1,'Name':'Aditya', 'Address':'Pune'}
+ collection.insert_one(dictionary)
+ show_db()
+ insert()
+ find()
+ update()
+ delete()
