@@ -57,7 +57,7 @@ def delete():
 if __name__ == "__main__":
  print("Welcome to pyMongo")
  print(client)
- db = client['Onkar']
+ db = client['Random']
  collection = db['Student']
  dictionary = {'Roll_no':1,'Name':'Aditya', 'Address':'Pune'}
  collection.insert_one(dictionary)
