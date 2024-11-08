@@ -1,0 +1,13 @@
+8.CRUDE
+
+
+db.createCollection('student');
+db.student.insert({'Rollno':'1','Name':'Riya','class':'TE COMP'});
+db.student.insert({'Rollno':'2','Name':'priya','class':'TE COMP'});
+db.student.insert({'Rollno':'3','Name':'rahul','class':'TE COMP'});
+db.student.insert({'Rollno':'4','Name':'rohan','class':'TE COMP'});
+db.student.find();
+db.student.update({'Name':'Riya'},{$set:{'Name':'shrushti'}});
+db.student.find().pretty();
+db.student.find().sort({'Rollno':'-1'});
+student> 
